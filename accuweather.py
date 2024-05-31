@@ -17,19 +17,20 @@ class Accuweather(CrawlSpider):
 
     custom_settings = {
         'USER_AGENT' : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
-        'CLOSESPIDER_PAGECOUNT': 101
+        'CLOSESPIDER_PAGECOUNT': 3300,
+        'LOG_ENABLED': False
     }
 
     allowed_domains = ['www.accuweather.com']
 
-    download_delay = 2
+    download_delay = 1
 
     start_urls = ["https://www.accuweather.com/es/browse-locations/nam/mx"]
 
     rules = (
         Rule(
             LinkExtractor(
-                allow=r'/nam/mx/bcn',
+                allow=r'/nam/mx/',
             ), follow=True
         ),
 
